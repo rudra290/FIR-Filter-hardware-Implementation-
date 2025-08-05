@@ -1,30 +1,51 @@
-//
-//Example of how to use the fsfirlin macro for the design
-//of an FIR filter by a frequency sampling technique.
-//
-//Two filters are designed : the first (response hst1) with
-//abrupt transitions from 0 to 1 between passbands and stop
-//bands; the second (response hst2) with one sample in each
-//transition band (amplitude 0.5) for smoothing.
-//
-hd=[zeros(1,15) ones(1,10) zeros(1,39)];//desired samples
-hst1=fsfirlin(hd,1);//filter with no sample in the transition
-hd(15)=.5;hd(26)=.5;//samples in the transition bands
-hst2=fsfirlin(hd,1);//corresponding filter
-pas=1/prod(size(hst1))*.5;
-fg=0:pas:.5;//normalized frequencies grid
-//plot2d(hd);
-plot2d([1 1].*.fg(1:257)',[hst1' hst2']);
-
-[x] = ffilt("lp",10,0.2,0.7)
-
-// 2nd example
-//hd=[0*ones(1,15) ones(1,10) 0*ones(1,39)];//desired samples
-//hst1=fsfirlin(hd,1);//filter with no sample in the transition
-//hd(15)=.5;hd(26)=.5;//samples in the transition bands
-//hst2=fsfirlin(hd,1);//corresponding filter
-//pas=1/prod(size(hst1))*.5;
-//fg=0:pas:.5;//normalized frequencies grid
-//n=prod(size(hst1))
-//plot(fg(1:n),hst1);
-//plot2d(fg(1:n)',hst2',[3],"000");
+clc ; 
+close ; 
+disp("EC037 Program to Design FIR Low Pass Filter"); 
+M = input ('Enter the odd Fileter length = ' ); 
+// Filter length 
+Wc = input ('Enter the Digital Cutoff frequency = '); 
+// Digital Cut off frequency 
+Tuo = (M -1) /2 // C ent er Value 
+for n = 1:M 
+if (n == Tuo +1) 
+hd(n) = Wc/ %pi ; 
+else 
+hd(n) = sin(Wc *((n -1) -Tuo)) /(((n -1) -Tuo )*%pi); 
+end 
+end 
+// Rectangular Window 
+for n = 1:M 
+W(n) = 1; 
+end 
+// Windowing Fitler Coefficients 
+h = hd .*W; 
+disp (h, 'Filter Coefficientsare') 
+[hzm ,fr ]= frmag (h ,256) ; 
+hzm_dB = 20* log10 (hzm)./ max ( hzm ); 
+subplot (3 ,1 ,1) 
+plot (2*fr , hzm ) 
+xlabel('Normalized Digital Frequency W'); 
+ylabel('Magnitude'); 
+title ('EC037 Frequency Response of FIR LPF using Rectangular window ') 
+xgrid (1) 
+subplot (3 ,1 ,2) 
+plot (2*fr , hzm_dB ) 
+xlabel ('Normalized Digital Frequency W'); 
+ylabel ('Magnitude in dB'); 
+title ('EC037 Frequency Response of FIR LPF using Rectangular window ') 
+xgrid (1)
+//, Sine wave  
+t=0:0.00001:0.1; 
+x2=sin(2*%pi*50*t) + sin(2*%pi*100*t) + sin(2*%pi*500*t);
+y = zeros(1,length(x2))
+for i = 10:length(x2)-1
+    for j = 1:M
+        y(i) = y(i) + h(j)*x2(i-j+1);
+    end
+end
+subplot (3 ,1 ,3)
+plot (t , x2) 
+plot (t,y) 
+xlabel ('Normalized Digital Frequency W'); 
+ylabel ('Magnitude in dB'); 
+title ('EC037 Frequency Response of FIR LPF using Rectangular window ')
