@@ -1,0 +1,242 @@
+
+*** Running vivado
+    with args -log FIR_Filter.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source FIR_Filter.tcl
+
+
+
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Fri Aug  8 20:44:37 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source FIR_Filter.tcl -notrace
+create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 492.305 ; gain = 210.832
+Command: read_checkpoint -auto_incremental -incremental {C:/Users/rudra/OneDrive/Desktop/FIR_Filter Project/FIR-Filter-hardware-Implementation-/FIR_Filter/FIR_Filter.srcs/utils_1/imports/synth_1/FIR_Filter.dcp}
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/rudra/OneDrive/Desktop/FIR_Filter Project/FIR-Filter-hardware-Implementation-/FIR_Filter/FIR_Filter.srcs/utils_1/imports/synth_1/FIR_Filter.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top FIR_Filter -part xc7a200tfbg676-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 25184
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1000.730 ; gain = 495.523
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'FIR_Filter' [C:/Users/rudra/OneDrive/Desktop/FIR_Filter Project/FIR-Filter-hardware-Implementation-/FIR_Filter/FIR_Filter.srcs/sources_1/new/FIR_Filter.v:24]
+INFO: [Synth 8-3876] $readmem data file 'Coefficient.txt' is read successfully [C:/Users/rudra/OneDrive/Desktop/FIR_Filter Project/FIR-Filter-hardware-Implementation-/FIR_Filter/FIR_Filter.srcs/sources_1/new/FIR_Filter.v:47]
+INFO: [Synth 8-6155] done synthesizing module 'FIR_Filter' (0#1) [C:/Users/rudra/OneDrive/Desktop/FIR_Filter Project/FIR-Filter-hardware-Implementation-/FIR_Filter/FIR_Filter.srcs/sources_1/new/FIR_Filter.v:24]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1107.641 ; gain = 602.434
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1107.641 ; gain = 602.434
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a200tfbg676-2
+INFO: [Device 21-403] Loading part xc7a200tfbg676-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1107.641 ; gain = 602.434
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1107.641 ; gain = 602.434
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	  11 Input   36 Bit       Adders := 1     
+	   2 Input   11 Bit       Adders := 1     
++---Registers : 
+	               36 Bit    Registers := 1     
+	               32 Bit    Registers := 50    
+	               11 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 740 (col length:100)
+BRAMs: 730 (col length: RAMB18 100 RAMB36 50)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[31] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[30] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[29] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[28] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[27] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[26] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[25] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[24] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[23] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[22] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[21] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[20] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[19] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[18] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[17] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[16] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[15] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[14] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[13] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[12] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[11] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[10] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[9] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[8] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[7] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[6] driven by constant 0
+WARNING: [Synth 8-3917] design FIR_Filter has port op_signal[5] driven by constant 0
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1318.340 ; gain = 813.133
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1333.168 ; gain = 827.961
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1333.168 ; gain = 827.961
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.102 ; gain = 1049.895
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.102 ; gain = 1049.895
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.102 ; gain = 1049.895
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.102 ; gain = 1049.895
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.102 ; gain = 1049.895
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.102 ; gain = 1049.895
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+-----------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name              | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+-----------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|FIR_Filter  | ip_buffer_reg[40][31] | 41     | 32    | NO           | NO                 | YES               | 0      | 64      | 
++------------+-----------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     1|
+|2     |CARRY4  |    45|
+|3     |LUT2    |     1|
+|4     |LUT3    |   166|
+|5     |LUT4    |   160|
+|6     |LUT5    |     2|
+|7     |SRLC32E |    64|
+|8     |FDRE    |   330|
+|9     |IBUF    |    34|
+|10    |OBUF    |    32|
++------+--------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |   835|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.102 ; gain = 1049.895
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 28 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.102 ; gain = 1049.895
+Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1555.102 ; gain = 1049.895
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1569.141 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 45 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1690.004 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 6a0dca70
+INFO: [Common 17-83] Releasing license: Synthesis
+19 Infos, 28 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1690.004 ; gain = 1190.836
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1690.004 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/rudra/OneDrive/Desktop/FIR_Filter Project/FIR-Filter-hardware-Implementation-/FIR_Filter/FIR_Filter.runs/synth_1/FIR_Filter.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file FIR_Filter_utilization_synth.rpt -pb FIR_Filter_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Aug  8 20:45:15 2025...

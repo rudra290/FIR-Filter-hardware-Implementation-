@@ -19,40 +19,77 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-`define Order_of_filter 50
+
 `define data_bus 32
+`define Order_of_filter 50 
+
 module FIR_tb();
-reg sample_clk=0;
-reg [`data_bus-1:0] ip_signal;
-wire [`data_bus-1:0] op_signal;
-reg [`data_bus-1:0] ip_buff [3000:0];
-integer i=0;
 
-FIR_Filter dut(sample_clk, ip_signal, op_signal);
-integer file; // File descriptor
+localparam CLK_PERIOD  = 10;          
+localparam NUM_SAMPLES = 900;        
+reg                   sample_clk;
+reg                   rst_n;       
+reg  [`data_bus-1:0]  ip_signal;
+wire [`data_bus-1:0]  op_signal;
+
+reg  [`data_bus-1:0]  ip_buff [NUM_SAMPLES-1:0];
+
+integer file, i;
+
+FIR_Filter dut (
+    .sample_clk(sample_clk),
+    .rst_n(rst_n),
+    .ip_signal(ip_signal),
+    .op_signal(op_signal)
+);
+
 initial begin
-  // Open a file in write mode
+    sample_clk = 0;
+    forever #(CLK_PERIOD/2) sample_clk = ~sample_clk;
+end
+
+
+initial begin
     file = $fopen("Output.txt", "w");
-    $readmemh("Input.txt", ip_buff);
     if (file == 0) begin
-      $display("Error: Could not open file.");
-      $finish;
+        $display("Error: Could not open Output.txt.");
+        $finish;
     end
-    $fwrite(file, "Simulation Results:\n");
-    // Close the file
+    $readmemh("Input.txt", ip_buff);
+
+    rst_n = 1'b0; 
+    i = 0;
+    #(2 * CLK_PERIOD); 
+    rst_n = 1'b1; 
     
-forever #5 sample_clk = ~sample_clk;
-#3000 $finish;
-$fclose(file);
-$display("Data written to Output.txt");
+    #((NUM_SAMPLES + `Order_of_filter + 5) * CLK_PERIOD);
 
+    $fclose(file);
+    $display("Simulation finished. Data written to Output.txt");
+    $finish;
 end
 
-always @(negedge sample_clk) begin
-ip_signal = ip_buff[i];
-    i = i+1;
-    $fwrite(file,op_signal,"\n");
+always @(negedge sample_clk or negedge rst_n) begin
+    if (!rst_n) begin 
+        ip_signal <= 0;
+        i <= 0;
+    end 
+    else begin
+        if (i < NUM_SAMPLES) begin
+            ip_signal <= ip_buff[i];
+            i <= i + 1;
+        end 
+        else begin
+            ip_signal <= 0; 
+        end
+    end
 end
 
+always @(posedge sample_clk) begin
+    if (rst_n && i > 1) begin
+        $fwrite(file,"%h\n",op_signal);
+    end
+end
 
 endmodule
+

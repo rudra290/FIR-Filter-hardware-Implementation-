@@ -18,13 +18,14 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-`define Order_of_filter 17
+`define Order_of_filter 50
 `define data_bus 32
+
 module FIR_Filter #(
 parameter no_coefficient = `Order_of_filter,
 parameter data_bus = `data_bus
 )(
-    input sample_clk,
+    input sample_clk,rst_n,
     input [data_bus-1:0] ip_signal,
     output reg [data_bus-1:0] op_signal
     );
@@ -36,20 +37,31 @@ reg [2*data_bus-1:0] op_buffer = 0;
 integer i;
 integer shift; 
     
+
+initial begin
+     
+     for(i=0; i<no_coefficient ; i=i+1) begin
+        coeffi[i] = 0;
+        ip_buffer[i] = 0;
+     end
+    $readmemh("Coefficient.txt", coeffi);
+end
+
 always @(negedge sample_clk) begin
-        op_buffer = ip_signal;
-        for (i=0; i<no_coefficient; i=i+1) begin
-        op_buffer = op_buffer + coeffi[i]*ip_buffer[no_coefficient - i - 1];
+        if(rst_n) begin
+            op_buffer = ip_signal;
+            for (i=0; i<no_coefficient; i=i+1) begin
+                op_buffer = op_buffer + coeffi[i]*ip_buffer[no_coefficient - i - 1];
+            end
         end
 end
-initial begin
-     $readmemh("Coefficient.txt", coeffi);
-end
+
 always @(posedge sample_clk) begin
-    ip_buffer[0] <= ip_signal;
-    for(shift=1; shift<no_coefficient;shift=shift+1) begin
-        ip_buffer[shift] <= ip_buffer[shift-1];
-    end
+    if(rst_n) begin
+        ip_buffer[0] <= ip_signal;
+        for(shift=1; shift<no_coefficient;shift=shift+1) begin
+            ip_buffer[shift] <= ip_buffer[shift-1];
+        end
 //    ip_buffer[1] <= ip_buffer[0];
 //    ip_buffer[2] <= ip_buffer[1];
 //    ip_buffer[3] <= ip_buffer[2];
@@ -59,7 +71,11 @@ always @(posedge sample_clk) begin
 //    ip_buffer[7] <= ip_buffer[6];
 //    ip_buffer[8] <= ip_buffer[7];
 //    ip_buffer[9] <= ip_buffer[8];
-    op_signal <= op_buffer[2*data_bus-1:data_bus];
+        op_signal = op_buffer[2*data_bus-1:data_bus];
+        if (op_buffer[data_bus-1])  begin
+            op_signal = op_signal + 1;
+        end 
+    end
 end 
 
 endmodule
