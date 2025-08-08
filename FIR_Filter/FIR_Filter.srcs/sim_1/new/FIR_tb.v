@@ -21,7 +21,7 @@
 
 
 `define data_bus 32
-`define Order_of_filter 50 
+`define Order_of_filter 3
 
 module FIR_tb();
 

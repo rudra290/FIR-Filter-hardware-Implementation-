@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a200tfbg676-2" LaunchTime="1754666074" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/FIR_Filter.dcp">
-  <File Type="PA-TCL" Name="FIR_Filter.tcl"/>
   <File Type="REPORTS-TCL" Name="FIR_Filter_reports.tcl"/>
-  <File Type="RDS-RDS" Name="FIR_Filter.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="FIR_Filter_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="FIR_Filter_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="FIR_Filter_utilization_synth.pb"/>
+  <File Type="PA-TCL" Name="FIR_Filter.tcl"/>
+  <File Type="RDS-RDS" Name="FIR_Filter.vds"/>
   <File Type="RDS-DCP" Name="FIR_Filter.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="FIR_Filter_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="FIR_Filter_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/FIR_Filter.v">

@@ -1,4 +1,4 @@
 Time resolution is 1 ps
 WARNING: Too many words specified in data file Input.txt
 Simulation finished. Data written to Output.txt
-$finish called at time : 9570 ns : File "C:/Users/rudra/OneDrive/Desktop/FIR_Filter Project/FIR-Filter-hardware-Implementation-/FIR_Filter/FIR_Filter.srcs/sim_1/new/FIR_tb.v" Line 86
+$finish called at time : 9100 ns : File "C:/Users/rudra/OneDrive/Desktop/FIR_Filter Project/FIR-Filter-hardware-Implementation-/FIR_Filter/FIR_Filter.srcs/sim_1/new/FIR_tb.v" Line 69
