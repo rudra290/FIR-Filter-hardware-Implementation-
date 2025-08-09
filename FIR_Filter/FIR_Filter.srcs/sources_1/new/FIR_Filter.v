@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-`define Order_of_filter 3
+`define Order_of_filter 50
 `define data_bus 32
 
 module FIR_Filter #(

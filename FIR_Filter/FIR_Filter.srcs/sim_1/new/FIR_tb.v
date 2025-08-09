@@ -21,12 +21,13 @@
 
 
 `define data_bus 32
-`define Order_of_filter 3
+`define Order_of_filter 50
+`define Sample_size 160
 
 module FIR_tb();
 
 localparam CLK_PERIOD  = 10;          
-localparam NUM_SAMPLES = 900;        
+localparam NUM_SAMPLES = `Sample_size;        
 reg                   sample_clk;
 reg                   rst_n;       
 reg  [`data_bus-1:0]  ip_signal;

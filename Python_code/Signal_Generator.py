@@ -31,14 +31,14 @@ print(frequency)
 
 
 # Time axis for 10 cycles of lowest freq (500 Hz)
-time = np.arange(0, 10*(1/min(frequency)), 0.1/sample_frequency)
-
+time = np.arange(0, 10*(1/min(frequency)), 1/sample_frequency)
+# time = np.arange(0,100) #test
 #Sum of signals
 x = 0
 for i in range(np.size(frequency)):
     x = x + np.sin(2*np.pi*frequency[i]*time)
 
-
+# x = np.ones(np.size(time),dtype=int) #test
 # Normalize to [-1, 1]
 x_normal = x / np.max(np.abs(x))
 
@@ -46,12 +46,17 @@ x_normal = x / np.max(np.abs(x))
 hex_value = np.zeros(np.size(x_normal), dtype=object)
 for i in range(np.size(x_normal)):
     hex_value[i] = float_to_q2_30_hex(x_normal[i])
-print(hex_value)
+
+
 with open("Input.txt", "w") as file:
-    print("Value printed!",file=file)
     for val in hex_value:
         print(val, file=file)
 
 #Plot
+plt.figure(figsize=(10, 4))
 plt.plot(time, x_normal)
+plt.xlabel("Time")
+plt.ylabel("Magnitude")
+plt.title("Input Signal")
+plt.grid(True)
 plt.show()
