@@ -21,6 +21,9 @@ while True:
     freq = int(input("Enter the frequency component (0 to stop): "))
     if freq == 0:
         break;
+    elif freq > (sample_frequency/2):
+        print("Frequency can't be greater Than Half of Sample Frequency\n")
+        continue;
 
     frequency.append(freq)
 
@@ -50,5 +53,5 @@ with open("Input.txt", "w") as file:
         print(val, file=file)
 
 #Plot
-plt.plot(time, hex_value)
+plt.plot(time, x_normal)
 plt.show()
