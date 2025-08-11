@@ -3,8 +3,8 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Fri Aug  8 20:44:37 2025
-# Process ID         : 19864
+# Start of session at: Mon Aug 11 13:55:48 2025
+# Process ID         : 22088
 # Current directory  : C:/Users/rudra/OneDrive/Desktop/FIR_Filter Project/FIR-Filter-hardware-Implementation-/FIR_Filter/FIR_Filter.runs/synth_1
 # Command line       : vivado.exe -log FIR_Filter.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FIR_Filter.tcl
 # Log file           : C:/Users/rudra/OneDrive/Desktop/FIR_Filter Project/FIR-Filter-hardware-Implementation-/FIR_Filter/FIR_Filter.runs/synth_1/FIR_Filter.vds
@@ -17,8 +17,8 @@
 # CPU Physical cores : 12
 # CPU Logical cores  : 16
 # Host memory        : 16773 MB
-# Swap memory        : 4563 MB
-# Total Virtual      : 21336 MB
-# Available Virtual  : 5331 MB
+# Swap memory        : 4831 MB
+# Total Virtual      : 21605 MB
+# Available Virtual  : 3804 MB
 #-----------------------------------------------------------
 source FIR_Filter.tcl -notrace

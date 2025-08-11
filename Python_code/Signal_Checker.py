@@ -5,10 +5,11 @@ def q2_30_hex_to_float(hex_value):
     int_value = int(hex_value, 16)
     if int_value & (1 << 31):
         int_value -= (1 << 32)
-    return int_value / (2**30)
+    return int_value / (2**28)
+
 
 value = []
-with open("Output.txt", "r") as file:
+with open(r"C:\Users\rudra\OneDrive\Desktop\FIR_Filter Project\FIR-Filter-hardware-Implementation-\FIR_Filter\FIR_Filter.sim\sim_1\behav\xsim\Output.txt", "r") as file:
     for line in file:
         hex_str = line.strip()
         if not hex_str:  # skip empty lines

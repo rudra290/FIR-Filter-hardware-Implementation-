@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-`define Order_of_filter 50
+`define Order_of_filter 49
 `define data_bus 32
 
 module FIR_Filter #(
@@ -33,7 +33,7 @@ parameter data_bus = `data_bus
 reg [data_bus-1:0] coeffi [no_coefficient - 1:0];
 reg [3:0] n;
 reg [data_bus-1:0] ip_buffer [no_coefficient - 1:0];
-reg [2*data_bus-1:0] op_buffer = 0;
+reg [2*data_bus+5:0] op_buffer = 0;
 integer i;
 integer shift; 
     
@@ -51,7 +51,7 @@ always @(negedge sample_clk) begin
         if(rst_n) begin
             op_buffer = ip_signal;
             for (i=0; i<no_coefficient; i=i+1) begin
-                op_buffer = op_buffer + coeffi[i]*ip_buffer[no_coefficient - i - 1];
+                op_buffer = op_buffer + {{3{coeffi[i][31]}},coeffi[i]}*{{3{ip_buffer[no_coefficient - i - 1][31]}},ip_buffer[no_coefficient - i - 1]};
             end
         end
 end
@@ -71,10 +71,10 @@ always @(posedge sample_clk) begin
 //    ip_buffer[7] <= ip_buffer[6];
 //    ip_buffer[8] <= ip_buffer[7];
 //    ip_buffer[9] <= ip_buffer[8];
-        op_signal = op_buffer[2*data_bus-1:data_bus];
-        if (op_buffer[data_bus-1])  begin
-            op_signal = op_signal + 1;
-        end 
+        op_signal = op_buffer >> 38;
+//        if (op_buffer[data_bus-1])  begin
+//            op_signal = op_signal + 1;
+//        end 
     end
 end 
 

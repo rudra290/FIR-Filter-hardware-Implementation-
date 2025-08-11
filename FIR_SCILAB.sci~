@@ -33,7 +33,7 @@ h = hd .* W;
 h = h / sum(h);
 
 // Save coefficients to file
-filename = 'Coefficient_float.txt';   
+filename = 'Coefficient.txt';   
 fd = mopen(filename, 'w');  // open file in write mode
 for k = 1:length(h)
     mfprintf(fd, '%0.10f\n', h(k));  // write each coefficient on a new line
@@ -51,8 +51,7 @@ Hmag_dB = 20 * log10(Hmag ./ max(Hmag));
 
 // Test signal (same as yours)
 t = 0:1/Fs:0.1;
-//x = sin(2*%pi*50*t) + sin(2*%pi*100*t) + sin(2*%pi*500*t)+sin(2*%pi*1000*t);
-x = sin(2*%pi*500*t)+sin(2*%pi*1500*t)+sin(2*%pi*3000*t)+sin(2*%pi*3500*t)
+x = sin(2*%pi*50*t) + sin(2*%pi*100*t) + sin(2*%pi*500*t)+sin(2*%pi*1000*t);
 
 // Full convolution
 y_full = conv(x, h); // length = length(x)+M-1

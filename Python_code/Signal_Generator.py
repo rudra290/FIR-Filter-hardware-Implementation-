@@ -42,17 +42,16 @@ for i in range(np.size(frequency)):
 # Normalize to [-1, 1]
 x_normal = x / np.max(np.abs(x))
 
-# Convert to hex Q2.30
 hex_value = np.zeros(np.size(x_normal), dtype=object)
 for i in range(np.size(x_normal)):
     hex_value[i] = float_to_q2_30_hex(x_normal[i])
 
 
-with open("Input.txt", "w") as file:
+with open(r"C:\Users\rudra\OneDrive\Desktop\FIR_Filter Project\FIR-Filter-hardware-Implementation-\FIR_Filter\FIR_Filter.sim\sim_1\behav\xsim\Input.txt", "w") as file:
     for val in hex_value:
         print(val, file=file)
 
-#Plot
+
 plt.figure(figsize=(10, 4))
 plt.plot(time, x_normal)
 plt.xlabel("Time")
