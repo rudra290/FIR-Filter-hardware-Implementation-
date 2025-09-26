@@ -17,7 +17,6 @@ A project repository for designing, simulating, and implementing a Finite Impuls
 - [Files Description](#files-description)  
 - [How to Build / Run](#how-to-build--run)  
 - [References](#references)  
-- [License](#license)  
 
 ---
 
