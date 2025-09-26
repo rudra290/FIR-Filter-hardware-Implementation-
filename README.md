@@ -1,4 +1,4 @@
-readme_content = """# FIR Filter Hardware Implementation
+# FIR Filter Hardware Implementation
 
 A project repository for designing, simulating, and implementing a Finite Impulse Response (FIR) filter in hardware. This includes filter design, coefficient generation, simulation, and hardware description (Verilog / HDL) implementation.
 
