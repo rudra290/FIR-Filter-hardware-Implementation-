@@ -44,7 +44,7 @@ This project demonstrates a full flow of FIR filter implementation in hardware:
 ## Repository Structure
 
 Here is a sample layout based on what is present:
-
+```yaml
 repository:
   name: FIR-Filter-hardware-Implementation
   structure:
@@ -58,7 +58,7 @@ repository:
     InTech_Digital_FIR_Hilbert_Transformers.pdf: "Research paper: Fundamentals and efficient design methods"
     fir-filter-design.pdf: "Additional reference on FIR filter design"
     other_references: "Miscellaneous reference and documentation files"
-
+```
 
 
 ---
