@@ -132,7 +132,7 @@ vvp fir_tb
 # 4. (Optional) Synthesize / implement to hardware (FPGA vendor commands)
 # e.g. for Xilinx Vivado:
 vivado -mode batch -source build_fir.tcl
-
+```
 ## References
 
 - “Digital FIR filter design” (PDFs included)
