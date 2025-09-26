@@ -45,17 +45,20 @@ This project demonstrates a full flow of FIR filter implementation in hardware:
 
 Here is a sample layout based on what is present:
 
-/
-├── FIR_Filter/ # HDL / Verilog source files
-├── Plots/ # Output plots (frequency response, etc.)
-├── Python_code/ # Python scripts for design, testing
-├── Chapter 5 - Design of FIR Filters.pdf
-├── Coefficient_float.txt
-├── FIR_Docs.docx
-├── FIR_SCILAB.sci
-├── InTech‑Digital_fir_hilbert_transformers_fundamentals_and_efficient_design_methods.pdf
-├── fir-filter-design.pdf
-└── other reference & documentation files
+repository:
+  name: FIR-Filter-hardware-Implementation
+  structure:
+    FIR_Filter/: "HDL / Verilog source files"
+    Plots/: "Output plots (frequency response, impulse response, error curves)"
+    Python_code/: "Python scripts for filter design, coefficient generation, and testing"
+    Chapter_5_Design_of_FIR_Filters.pdf: "Reference chapter on FIR filter design"
+    Coefficient_float.txt: "List of generated floating-point coefficients"
+    FIR_Docs.docx: "Documentation on FIR filter theory and project notes"
+    FIR_SCILAB.sci: "SciLab script for FIR filter design and analysis"
+    InTech_Digital_FIR_Hilbert_Transformers.pdf: "Research paper: Fundamentals and efficient design methods"
+    fir-filter-design.pdf: "Additional reference on FIR filter design"
+    other_references: "Miscellaneous reference and documentation files"
+
 
 
 ---
